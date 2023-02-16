@@ -16,17 +16,22 @@ public class Main {
     private static List<String> voltas = new ArrayList<>();
     private static int posicaoChegada = 1;
 
+
     public static void main(String[] args) throws FileNotFoundException {
     	
         File file = new File("C:/Users/bruno/eclipse-workspace/Corrida/src/com/Corrida/arquivo_de_entrada.txt");
-
-        try (Scanner scan = new Scanner(file)) {
-            while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                ManipuladorDeLinhas.processarLinha(line, todosPilotos, codigosPilotos, voltas);
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String linha = scanner.nextLine();
+                ManipuladorDeLinhas.processarLinha(linha, todosPilotos, codigosPilotos, voltas);
             }
+           
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-
+        
         Map<String, Integer> mapaTempoTotalPorPiloto = SomadasVoltas.getTempoTotalPorPiloto();
         Map<String, List<String>> mapaVoltasCompletadasPorPiloto = ManipuladorDeLinhas.getVoltasCompletadasPorPiloto();
         List<PilotoResultado> resultados = new ArrayList<>();
@@ -56,8 +61,6 @@ public class Main {
 	            writer.close();
 	        } catch (IOException e) {
 	            e.printStackTrace();
-	        }	        
+	        }	   
 	} 
 }
-
-

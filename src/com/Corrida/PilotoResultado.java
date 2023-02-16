@@ -55,7 +55,8 @@ class PilotoResultado implements Comparable<PilotoResultado> {
                      "Código Piloto: " + codigoPiloto + "\n" +
                      "Nome Piloto: " + nomePiloto + "\n" +
                      "Qtde Voltas Completadas: " + qtdeVoltasCompletadas + "\n" +
-                     "Tempo Total de Prova: " + formatarTempo(tempoTotalProva) + "\n";
+                     "Tempo Total de Prova: " + formatarTempo(tempoTotalProva) + "\n"+
+                     contador+";"+codigoPiloto+";"+nomePiloto+";"+qtdeVoltasCompletadas+";"+formatarTempo(tempoTotalProva)+";\n";
         	 		contador= contador + 1;       	 		
         }  
         
@@ -65,7 +66,8 @@ class PilotoResultado implements Comparable<PilotoResultado> {
                      "Nome Piloto: " + nomePiloto + "\n" +
                      "Qtde Voltas Completas: " + qtdeVoltasCompletadas + "\n" +
                      "Tempo Total de Prova: " + formatarTempo(tempoTotalProva) + "\n"+
-        	 		 "STATUS: Não completou a prova\n";
+        	 		 "STATUS: Não completou a prova\n"+
+        	 		 contador+";"+codigoPiloto+";"+nomePiloto+";"+qtdeVoltasCompletadas+";"+formatarTempo(tempoTotalProva)+";\n";
 	  				posicaoChegada = contador +1 ; 
         }             
 		return str;

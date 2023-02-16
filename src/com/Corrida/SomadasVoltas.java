@@ -8,7 +8,11 @@ public class SomadasVoltas {
 	private static Map<String, Integer> tempoTotalPorPiloto = new HashMap<>();
 	
 	public static void tempoTotal(String tempoVoltaString , String codigoPiloto) {
-				
+		
+		if(tempoVoltaString == "Volta"){
+			return ; 
+		}
+		
 		String[] tempoVoltaParts = tempoVoltaString.split("\\.");
 		int minutos = Integer.parseInt(tempoVoltaParts[0].split(":")[0]);
 		int segundos = Integer.parseInt(tempoVoltaParts[0].split(":")[1]);
